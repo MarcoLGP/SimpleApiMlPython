@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
@@ -6,8 +7,11 @@ from sklearn.metrics import accuracy_score
 
 class ClientBank:
     def __init__(self):
+        # Obtendo o diretório
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        
         # Lendo a base de dados
-        self.df = pd.read_csv("exemplo2.csv")
+        self.df = pd.read_csv(dir_path + "/exemplo2.csv")
     
         # Separando o input do output
         X = self.df.drop("risco", axis= 1)
